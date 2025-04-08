@@ -1,7 +1,15 @@
 public class DynamicStringList implements StringList{
+    private String[] data;
+    private int size;
+
+
     @Override
     public String get(int index){
-        return "null";
+        if(index >= 0 && index < data.length){
+            return data[index];
+        }else{
+            throw new IndexOutOfBoundsException("Index: "+index+ "Size: " +size);
+        }
     }
 
     @Override
@@ -11,7 +19,7 @@ public class DynamicStringList implements StringList{
 
     @Override
     public void add(String value){
-        
+
     }
 
     @Override
