@@ -11,7 +11,6 @@ public interface StringList {
    * @throws IndexOutOfBoundsException if the index is out of range (index < 0 or index >= size()).
    */
   public String get(int index);
-
   /**
    * Replaces the string at the specified index with the given value.
    *
