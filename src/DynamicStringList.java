@@ -15,6 +15,9 @@ public class DynamicStringList implements StringList{
     }
 
     @Override
+    public String remove(int index) {
+        
+    }
     @Override
     @Override
 }
