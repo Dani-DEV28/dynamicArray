@@ -1,6 +1,13 @@
 public class DynamicStringList implements StringList{
     private String[] data;
     private int size;
+    private int capacity;
+
+    public DynamicStringList() {
+        capacity = 1;
+        size = 0;
+        data = new String[capacity];
+    }
 
 
     @Override
