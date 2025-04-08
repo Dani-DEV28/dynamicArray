@@ -16,8 +16,16 @@ public class DynamicStringList implements StringList{
 
     @Override
     public String remove(int index) {
-        
+        return "null";
     }
+
     @Override
+    public int size() {
+        return 0;
+    }
+
     @Override
+    public int capacity() {
+        return 0;
+    }
 }
