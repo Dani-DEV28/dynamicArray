@@ -15,7 +15,7 @@ public class DynamicStringList implements StringList{
         if(index >= 0 && index < data.length){
             return data[index];
         }else{
-            throw new IndexOutOfBoundsException("Index: "+index+ "Size: " +size);
+            throw new IndexOutOfBoundsException("Index Outbound");
         }
     }
 
