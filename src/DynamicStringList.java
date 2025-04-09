@@ -34,7 +34,6 @@ public class DynamicStringList implements StringList{
     }
 
     @Override
-
     public String remove(int index) {
         // Check if the index is valid 
         if (index < 0 || index >= size()) {
@@ -66,7 +65,12 @@ public class DynamicStringList implements StringList{
     
     @Override
     public int size() {
-        return 0;
+        for (String string : data) {
+            if(string != "null"){
+                size++;
+            }
+        }
+        return size;
     }
 
     @Override
