@@ -66,7 +66,7 @@ public class DynamicStringList implements StringList{
     @Override
     public int size() {
         for (String string : data) {
-            if(string != "null"){
+            if(string != null){
                 size++;
             }
         }
