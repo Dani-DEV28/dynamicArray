@@ -21,7 +21,24 @@ public class DynamicStringList implements StringList{
 
     @Override
     public void set(int index, String value){
+        if(!(index >= 0 && index < data.length)){
+            throw new IndexOutOfBoundsException("Index Outbound");
+        }
 
+        String[] placeholder = new String[capacity];
+        boolean notSet = true;
+        for(int i = 0; i < data.length; i++){
+            if(i != index || notSet){
+                placeholder[i] = data[i];
+                notSet = true;
+            }else{
+                placeholder[i] = value;
+                notSet = false;
+                i--;
+            }
+        }
+
+        data = placeholder;
     }
 
     @Override
