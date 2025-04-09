@@ -59,7 +59,19 @@ public class DynamicStringList implements StringList{
    
     @Override
     public void add(String value){
+        size++;
 
+        if (size > capacity) {
+            capacity = capacity * 2;
+            String[] tempArr = new String[capacity];
+            for (int i = 0; i < data.length; i++) {
+                tempArr[i] = data[i];
+            }
+            data = new String[capacity];
+            data = tempArr;
+        }
+
+        data[size] = value;
     }
 
     
