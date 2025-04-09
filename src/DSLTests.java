@@ -31,14 +31,10 @@ public class DSLTests {
     assertEquals(3, list.size(), "Size should be 2 after removing one element");
   }
 
-  @Before
-  public void setUp() {
-      // Set custom capacity for the test
-      list = new DynamicStringList(20);
-  }
-
   @Test
   public void testChangingCaps(){
-
+    list = new DynamicStringList(1);
+    
+    assertEquals(1, list.capacity());
   }
 }

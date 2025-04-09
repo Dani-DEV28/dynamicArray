@@ -93,6 +93,6 @@ public class DynamicStringList implements StringList{
 
     @Override
     public int capacity() {
-        return 0;
+        return capacity;
     }
 }
