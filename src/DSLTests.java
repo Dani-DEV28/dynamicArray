@@ -12,5 +12,21 @@ public class DSLTests {
     });
   }
 
+  @Test
+  public void testInitialSize() {
+    DynamicStringList list = new DynamicStringList();
+    assertEquals(0, list.size(), "Initial size should be 0");
+  }
 
+
+  @Test
+  public void testSizeAfterRemoval() {
+      DynamicStringList list = new DynamicStringList();
+      list.set(0, "A");
+      list.set(1, "B");
+      list.set(2, "C");
+
+      // list.remove(1); // Remove "B"
+      assertEquals(3, list.size(), "Size should be 2 after removing one element");
+  }
 }

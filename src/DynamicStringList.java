@@ -21,7 +21,7 @@ public class DynamicStringList implements StringList{
 
     @Override
     public void set(int index, String value){
-        if(!(index >= 0 && index < data.length)){
+        if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("Index Outbound");
         }
 
@@ -65,6 +65,7 @@ public class DynamicStringList implements StringList{
     
     @Override
     public int size() {
+        size = 0;
         for (String string : data) {
             if(string != null){
                 size++;
