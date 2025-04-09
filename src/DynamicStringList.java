@@ -4,11 +4,16 @@ public class DynamicStringList implements StringList{
     private int capacity;
 
     public DynamicStringList() {
-        capacity = 1;
+        capacity = 10;
         size = 0;
         data = new String[capacity];
     }
-
+    
+    public DynamicStringList(int capacity) {
+        this.capacity = capacity;
+        this.size = 0;
+        this.data = new String[capacity];
+    }
 
     @Override
     public String get(int index){
