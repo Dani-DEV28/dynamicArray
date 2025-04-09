@@ -25,20 +25,12 @@ public class DynamicStringList implements StringList{
             throw new IndexOutOfBoundsException("Index Outbound");
         }
 
-        String[] placeholder = new String[capacity];
-        boolean notSet = true;
-        for(int i = 0; i < data.length; i++){
-            if(i != index || notSet){
-                placeholder[i] = data[i];
-                notSet = true;
-            }else{
-                placeholder[i] = value;
-                notSet = false;
-                i--;
-            }
+        for (int i = size; i > index; i--) {
+            data[i] = data[i - 1];
         }
-
-        data = placeholder;
+    
+        data[index] = value;
+        size++;
     }
 
     @Override
@@ -58,7 +50,7 @@ public class DynamicStringList implements StringList{
         }
         
         // Decrease the size of the list by 1
-        int size;
+        // int size;
         size--;
         
         // Return the element that was removed
@@ -66,7 +58,7 @@ public class DynamicStringList implements StringList{
     }
 
    
-
+    @Override
     public void add(String value){
 
     }
