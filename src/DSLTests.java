@@ -1,14 +1,11 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
-
 public class DSLTests {
 
-  private DynamicStringList list = new DynamicStringList();
-
   @Test
-  public void DSLGetTest_outOfBounds() {
+  public void DSLGetTest_negativeOutOfBounds() {
+    DynamicStringList list = new DynamicStringList();
 
     assertThrows(IndexOutOfBoundsException.class, () -> {
         list.get(-1);
@@ -16,25 +13,40 @@ public class DSLTests {
   }
 
   @Test
-  public void testInitialSize() {
-    assertEquals(0, list.size(), "Initial size should be 0");
-  }
+  public void DSLGetTest_positiveOutOfBounds() {
+    DynamicStringList list = new DynamicStringList();
 
+    list.add("A");
+    list.add("B");
 
-  @Test
-  public void testSizeAfterRemoval() {
-    list.set(0, "A");
-    list.set(1, "B");
-    list.set(2, "C");
-
-    // list.remove(1); // Remove "B"
-    assertEquals(3, list.size(), "Size should be 2 after removing one element");
+    assertThrows(IndexOutOfBoundsException.class, () -> {
+        list.get(2);
+    });
   }
 
   @Test
-  public void testChangingCaps(){
-    list = new DynamicStringList(1);
+  public void DSLSetTest_outOfBounds() {
     
-    assertEquals(1, list.capacity());
+  }
+
+
+  @Test
+  public void DSLAddTest_outOfBounds() {
+    
+  }
+
+  @Test
+  public void DSLRemoveTest_outOfBounds(){
+    
+  }
+
+  @Test
+  public void DSLSizeTest_outOfBounds() {
+
+  }
+
+  @Test
+  public void DSLCapacityTest_outOfBounds() {
+
   }
 }

@@ -17,32 +17,27 @@ public class DynamicStringList implements StringList{
 
     @Override
     public String get(int index){
-        if(index >= 0 && index < data.length){
-            return data[index];
-        }else{
+        if(index < 0 || index >= size()){
             throw new IndexOutOfBoundsException("Index Outbound");
+        }else{
+            return data[index];
         }
     }
 
     @Override
     public void set(int index, String value){
-        if(index < 0 || index > size){
+        if(index < 0 || index >= size()){
             throw new IndexOutOfBoundsException("Index Outbound");
         }
 
-        for (int i = size; i > index; i--) {
-            data[i] = data[i - 1];
-        }
-    
         data[index] = value;
-        size++;
     }
 
     @Override
     public String remove(int index) {
         // Check if the index is valid 
         if (index < 0 || index >= size()) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size());
+            throw new IndexOutOfBoundsException("Index Outbound");
         }
         
         // Get the element at the specified index to return later
@@ -50,7 +45,7 @@ public class DynamicStringList implements StringList{
         
         // Shift all elements after the index one position to the left
         for (int i = index; i < size() - 1; i++) {
-            set(i, get(i + 1));
+            data[i] = data[i+1];
         }
         
         // Decrease the size of the list by 1
@@ -76,7 +71,7 @@ public class DynamicStringList implements StringList{
             data = tempArr;
         }
 
-        data[size] = value;
+        data[size-1] = value;
     }
 
     
@@ -94,5 +89,20 @@ public class DynamicStringList implements StringList{
     @Override
     public int capacity() {
         return capacity;
+    }
+
+    // This method is purely for testing our methods such as add
+    @Override
+    public String toString() {
+        if (data.length == 0) {
+            return "[]";
+        }
+        else {
+            String result = "[" + data[0];
+            for (int i = 1; i < data.length; i++) {
+                result += ", " + data[i];
+            }
+            return result + "]";
+        }
     }
 }
