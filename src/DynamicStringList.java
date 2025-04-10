@@ -49,7 +49,8 @@ public class DynamicStringList implements StringList{
         }
         
         // Decrease the size of the list by 1
-        // int size;
+        // int size
+        data[size - 1] = null;
         size--;
         
         // Return the element that was removed
